@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <iomanip>
 #include <algorithm>
 
@@ -6,19 +6,6 @@
 
 using namespace std;
 
-//int Matrix_Smegh[N][N] =
-//{
-//    {   0,   3,   4,   2, inf, inf, inf, inf, inf, inf },
-//    { inf,   0, inf, inf, inf,   3, inf, inf, inf, inf },
-//    { inf, inf,   0, inf, inf,   6, inf, inf, inf, inf },
-//    { inf, inf, inf,   0,   5,   2, inf, inf, inf, inf },
-//    { inf, inf, inf, inf,   0, inf,   6, inf,  12, inf },
-//    { inf, inf, inf, inf,   1,   0,  12,   7, inf, inf },
-//    { inf, inf, inf, inf, inf, inf,   0, inf, inf,   4 },
-//    { inf, inf, inf, inf, inf, inf, inf,   0, inf,   3 },
-//    { inf, inf, inf, inf, inf, inf, inf,   6,   0,  11 },
-//    { inf, inf, inf, inf, inf, inf, inf, inf, inf,   0 }
-//};
 
 int Matrix_Floyd[N][N] =
 {
@@ -48,27 +35,14 @@ int Matrix_Crusc[N][N]
     {  inf, inf, inf, inf, inf,   6, inf,   1, inf,   0 }
 };
 
-//int Matrix_Smegh[N][N] =
-//{
-//    {    0, inf,   2, inf, inf, inf, inf, inf, inf, inf },
-//    {    4,   0, inf, inf, 5,   inf, inf, inf, inf, inf },
-//    {  inf,   1,   0, inf, inf, inf, inf, inf, inf, inf },
-//    {  inf, inf,   3,   0, inf, inf, inf, inf, inf, inf },
-//    {  inf, inf, inf, inf,   0,   5, inf,   6, inf, inf },
-//    {    8, inf, inf, inf, inf,   0,   1, inf, inf, inf },
-//    {  inf, inf, inf, inf,   7, inf,   0, inf, inf,   3 },
-//    {  inf, inf, inf,   4, inf, inf, inf,   0,   5, inf },
-//    {  inf, inf, inf, inf,   2, inf, inf, inf,   0, inf },
-//    {  inf, inf, inf, inf, inf, inf, inf, inf,   1,   0 }
-//};
 
 int main()
 {
     int menu; // Выбор действия
 
     cout << "Enter the number:" << endl
-         << "1 -- Floyd-Warshall algorithm" << endl
-         << "2 -- Kruskal's (Kruskal's) algorithm" << endl;
+        << "1 -- Floyd-Warshall algorithm" << endl
+        << "2 -- Kruskal's (Kruskal's) algorithm" << endl;
     cout << "Stage: "; cin >> menu;
 
     //_____________________________ЭТАП 1__________________________________
@@ -78,41 +52,30 @@ int main()
         int** Shortest = new int* [N];
         for (int i = 0; i < N; i++) Shortest[i] = new int[N]();
 
-        int** Pred = new int* [N];
-        for (int i = 0; i < N; i++) Pred[i] = new int[N]();
-
         // Заполнение массивов
         for (int u = 0; u < N; u++)
         {
             for (int v = 0; v < N; v++)
             {
                 Shortest[u][v] = Matrix_Floyd[u][v]; // Копирование с матрицы смежностей
-                if (Matrix_Floyd[u][v] < inf)
-                    Pred[u][v] = u;
-                else
-                    Pred[u][v] = -2;
             }
         }
 
         // Печать массива смежностей
         cout << "\n\t\tInitial Adjacency Matrix:" << endl;
-        Print_Smegh(Matrix_Floyd);
+        Static_Print_Matr(Matrix_Floyd);
         BotBorder();
 
-        cout << "\t\t\tBefore:" << endl << endl;
-        Print_Pred(Pred); // Печать матрицы Pred
-        Print_Help_Matr(Shortest); // Печать матрицы Shortest
+        cout << "\t\t\tBefore:\n" << endl << endl;
+        Print_Matr(Shortest); // Печать матрицы Shortest
         BotBorder();
 
-        Floyd_Warshall(&Shortest, &Pred); // Алгоритм Флойда-Уоршелла                                                                                        
+        Floyd_Warshall(&Shortest); // Алгоритм Флойда-Уоршелла                                                                                        
         BotBorder();
 
-        cout << "\t\t\tAfter:" << endl << endl;                                                             
-        Print_Pred(Pred); // Печать матрицы Pred      
-        Print_Help_Matr(Shortest); // Печать матрицы Shortest  
-        BotBorder();
-
-        Way(Pred); // Функция нахождения пути
+        cout << "\t\t\tAfter:" << endl << endl;
+        cout << "\t\t\tShortest" << endl;
+        Print_Matr(Shortest); // Печать матрицы Shortest  
         BotBorder();
 
     }
@@ -139,11 +102,11 @@ int main()
         }
 
         cout << "\t\tSource graph matrix:" << endl;
-        Print_Smegh(Matrix_Crusc);
+        Static_Print_Matr(Matrix_Crusc);
         BotBorder();
 
         cout << "\t\tOstov matrix before algorithm:" << endl;
-        Print_Help_Matr(Ostov);
+        Print_Matr(Ostov);
         BotBorder();
 
         cout << "\nLeast Kruskal weight spanning tree:";
@@ -151,7 +114,7 @@ int main()
         BotBorder();
 
         cout << "\nAdjacency matrix of graph with spanning tree:" << endl;
-        Print_Help_Matr(Ostov);
+        Print_Matr(Ostov);
         BotBorder();
     }
 }

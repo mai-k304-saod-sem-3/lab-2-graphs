@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <iomanip>
 #include <algorithm>
 
@@ -7,49 +7,9 @@
 using namespace std;
 
 // Процедуры печати
-void Print_Pred(int **Array)
+void Static_Print_Matr(int Matrix [][N])
 {
-    cout << "\t\t\tPred" << endl;
-    Shapka();
-    Numberacya();
-    for (int u = 0; u < N; u++)
-    {
-        Mid();
-        cout << setfill(' ') << char(179) << setw(4) << u + 1 <<char(179);
-        for (int v = 0; v < N; v++)
-        {
-           if(Array[u][v] > -1)
-                cout  << setw(4) << Array[u][v] + 1 << char(179);
-            else
-                cout << setw(4) << "NULL" << char(179);
-        }
-    }
-    Niz();
-    cout << endl;
-}
 
-void Print_Smegh(int Matrix[N][N])
-{
-    Shapka();
-    Numberacya();
-    for (int u = 0; u < N; u++)
-    {
-        Mid();
-        cout << setfill(' ') << char(179) << setw(4) << u + 1 << char(179);
-        for (int v = 0; v < N; v++)
-        {
-            if (Matrix[u][v] == inf)
-                cout << setw(4) << "OO" << char(179);
-            else
-                cout << setw(4) << Matrix[u][v] << char(179);
-        }
-    }
-    Niz();
-    cout << endl;
-}
-void Print_Help_Matr(int** Matrix)
-{
-    cout << "\t\t\tShortest" << endl;
     Shapka();
     Numberacya();
     for (int u = 0; u < N; u++)
@@ -60,47 +20,81 @@ void Print_Help_Matr(int** Matrix)
         {
             switch (Matrix[u][v])
             {
-                case -1:
-                {
-                    cout << setw(4) << 0 << char(179);
-                    break;
-                }
-                case inf:
-                {
-                    cout << setw(4) << "OO" << char(179);
-                    break;
-                }
-                default:
-                {
-                    cout << setw(4) << Matrix[u][v] << char(179);
-                    break;
-                }
+            case -2:
+            {
+                cout << setw(4) << "NULL" << char(179);
+                break;
+            }
+            case 100000:
+            {
+                cout << setw(4) << "NULL" << char(179);
+                break;
+            }
+            default:
+            {
+                cout << setw(4) << Matrix[u][v] << char(179);
+                break;
+            }
             }
         }
     }
     Niz();
     cout << endl;
-}                                  
+}
+
+void Print_Matr(int** Matrix)
+{
+    Shapka();
+    Numberacya();
+    for (int u = 0; u < N; u++)
+    {
+        Mid();
+        cout << setfill(' ') << char(179) << setw(4) << u + 1 << char(179);
+        for (int v = 0; v < N; v++)
+        {
+            switch (Matrix[u][v])
+            {
+            case -2:
+            {
+                cout << setw(4) << "NULL" << char(179);
+                break;
+            }
+            case 100000:
+            {
+                cout << setw(4) << "NULL" << char(179);
+                break;
+            }
+            default:
+            {
+                cout << setw(4) << Matrix[u][v] << char(179);
+                break;
+            }
+            }
+        }
+    }
+    Niz();
+    cout << endl;
+}
 // Вспомогательные методы
 void Way(int** Pred) // Метод вывода пути
 {
-    int k, m;                                                                        
-    cout << "Enter from where: ";   cin >> k;                                         
-    cout << "Enter where: ";   cin >> m;                                         
-                                                                                     
-    cout << "From " << k << " in " << m << ":" << endl;                                
-    int Temp = m - 1;                                                                
-    if (Pred[k - 1][Temp] > 0)                                                       
-    {                                                                                
-        cout << " " << m;                                                            
-        while (Temp != k - 1)                                                        
-        {                                                                            
-            cout << "  <--  " << Pred[k - 1][Temp] + 1;                              
-            Temp = Pred[k - 1][Temp];                                                
-        }                                                                            
-    }                                                                                
-    else cout << "Error: Paths from " << k << " in " << m << " not";                   
-    cout << endl;                                                                    
+    int k, m;
+    cout << "Enter from where: ";   cin >> k;
+    cout << "Enter where: ";   cin >> m;
+
+    cout << "From " << k << " in " << m << ":" << endl;
+    int Temp = m - 1;
+    if (Pred[k - 1][Temp] > 0)
+    {
+        cout << " " << m;
+        while (Temp != k - 1)
+        {
+            cout << "  <--  " << Pred[k - 1][Temp] + 1;
+            Temp = Pred[k - 1][Temp];
+        }
+    }
+    else cout << "Error: Paths from " << k << " in " << m << " not";
+    cout << endl;
 }
 int  mini(int value1, int value2) {
     return ((value1 < value2) ? value1 : value2);
@@ -127,8 +121,8 @@ void Numberacya() {
 }
 void Mid() {
     cout << endl << setfill(char(196))
-         << char(195) << setw(5);
-    for (int i = 0; i < N ; i++)
+        << char(195) << setw(5);
+    for (int i = 0; i < N; i++)
         cout << char(197) << setw(5);       // "├───────────"
     cout << char(180) << endl;              // "┤"
 }
@@ -141,29 +135,28 @@ void Niz() {
 }
 
 // Методы алгоритмов
-void Floyd_Warshall(int*** Shortest, int*** Pred) // Алгоритм Флойда-Уоршелла
+void Floyd_Warshall(int*** Shortest) // Алгоритм Флойда-Уоршелла
 {
-    for (int x = 0; x < 10; x++)
-    {                                                                                                            
-        for (int u = 0; u < 10; u++)                                                                             
-        {                                                                                                        
-            for (int v = 0; v < 10; v++)                                                                         
-            {                                                                                                    
-                if ((*Shortest)[u][x] + (*Shortest)[x][v] < (*Shortest)[u][v])                                   
-                {                                                                                                
-                    (*Shortest)[u][v] = (*Shortest)[u][x] + (*Shortest)[x][v];                                   
-                    (*Pred)[u][v] = (*Pred)[x][v];                                                               
-                }                                                                                                
-            }                                                                                                    
-        }                                                                                                        
-        cout << "\t\t\tx = " << x + 1 << endl;                                                                   
-        Print_Pred((*Pred));                                                          // Печать матрицы Pred     
-        Print_Help_Matr(*Shortest);                                                   // Печать матрицы Shortest 
-        cout << " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " << endl;                             
-    }                                                                                                            
+
+    for (int k = 0; k < 10; k++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if ((*Shortest)[i][j] >(*Shortest)[i][k] + (*Shortest)[k][j])
+                {
+                    (*Shortest)[i][j] = (*Shortest)[i][k] + (*Shortest)[k][j];
+                }
+            }
+        }
+        cout << "\t\t\tx = " << k + 1 << endl;
+        Print_Matr(*Shortest);                                                   // Печать матрицы Shortest 
+        cout << " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " << endl;
+    }
 }
 
-void Crusc(int A[][N], int ***B, int  R[][3]) // Алгоритм Крускала
+void Crusc(int A[][N], int*** B, int  R[][3]) // Алгоритм Краскала
 {
     int k;                          // Счётчик
     int xmin;                       // Индекс ребра
@@ -209,8 +202,8 @@ void Crusc(int A[][N], int ***B, int  R[][3]) // Алгоритм Крускал
     for (int i = 0; i < En; i++)
     {
         cout << " " << Edge[i].out + 1 << " –– "
-                    << Edge[i].in + 1  << " = "
-                    << Edge[i].weight  << endl;
+            << Edge[i].in + 1 << " = "
+            << Edge[i].weight << endl;
 
     } // for i
 
@@ -237,7 +230,7 @@ void Crusc(int A[][N], int ***B, int  R[][3]) // Алгоритм Крускал
         cout << "\t\t\tCn: " << Cn << endl
             << " \t\tAdded " << Edge[xmin].out + 1 << " –– "
             << Edge[xmin].in + 1 << " = " << Edge[xmin].weight << endl;
-        Print_Help_Matr((*B));
+        Print_Matr((*B));
 
         for (int i = 0; i < N; i++)
             cout << " " << i + 1 << ": " << C[i] << endl;
@@ -253,9 +246,10 @@ void Crusc(int A[][N], int ***B, int  R[][3]) // Алгоритм Крускал
             {
                 R[k][0] = i;  R[k][1] = j;
                 R[k++][2] = (*B)[i][j];
-                cout << " " << R[k - 1][0] + 1 << " -- " 
-<< R[k-1][1] + 1 << " = " << R[k - 1][2] << endl;
-                Sum += R[k - 1][2];            } // if
+                cout << " " << R[k - 1][0] + 1 << " -- "
+                    << R[k - 1][1] + 1 << " = " << R[k - 1][2] << endl;
+                Sum += R[k - 1][2];
+            } // if
         } // for j
     } // for i
     cout << "Total weight: " << Sum << endl;

@@ -7,25 +7,23 @@ const int N = 10;
 
 using namespace std;
 
-// РџСЂРѕС†РµРґСѓСЂС‹ РїРµС‡Р°С‚Рё
-void Print_Pred(int** Array);
-void Print_Smegh(int Matrix[N][N]);
-void Print_Help_Matr(int** Shortest);
-
-// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ РјРµС‚РѕРґС‹
-void Way(int **Pred);
+// Процедуры печати
+void Print_Matr(int** Matrix);
+void Static_Print_Matr(int Matrix[][N]);
+// Вспомогательные методы
+void Way(int** Pred);
 int  mini(int value1, int value2);
 void BotBorder();
 
-// РњРµС‚РѕРґС‹ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ С‚Р°Р±Р»РёС†
+// Методы для построения таблиц
 void Shapka();
 void Numberacya();
 void Mid();
 void Niz();
 
-// РњРµС‚РѕРґС‹ Р°Р»РіРѕСЂРёС‚РјРѕРІ
-void Floyd_Warshall(int ***Shotest, int ***Pred); // РђР»РіРѕСЂРёС‚Рј Р¤Р»РѕР№РґР°-РЈРѕСЂС€РµР»Р»Р°
-void Crusc(int A[][N], int***  B, int  R[][3]); // РђР»РіРѕСЂРёС‚Рј РљСЂСѓСЃРєР°Р»Р°
+// Методы алгоритмов
+void Floyd_Warshall(int*** Shotest); // Алгоритм Флойда-Уоршелла
+void Crusc(int A[][N], int*** B, int  R[][3]); // Алгоритм Крускала
 
 
 #endif
