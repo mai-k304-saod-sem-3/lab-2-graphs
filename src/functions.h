@@ -15,7 +15,6 @@ void Print_Help_Matr(int** Shortest);
 // Вспомогательные методы
 void Way(int **Pred);
 int  mini(int value1, int value2);
-void DeleteMas(int* Array);
 void BotBorder();
 
 // Методы для построения таблиц

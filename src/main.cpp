@@ -8,78 +8,71 @@ using namespace std;
 
 //int Matrix_Smegh[N][N] =
 //{
-//    //           1    2    3    4    5    6    7    8    9   10
-//    /*x1*/   {   0,   3,   4,   2, inf, inf, inf, inf, inf, inf },
-//    /*x2*/   { inf,   0, inf, inf, inf,   3, inf, inf, inf, inf },
-//    /*x3*/   { inf, inf,   0, inf, inf,   6, inf, inf, inf, inf },
-//    /*x4*/   { inf, inf, inf,   0,   5,   2, inf, inf, inf, inf },
-//    /*x5*/   { inf, inf, inf, inf,   0, inf,   6, inf,  12, inf },
-//    /*x6*/   { inf, inf, inf, inf,   1,   0,  12,   7, inf, inf },
-//    /*x7*/   { inf, inf, inf, inf, inf, inf,   0, inf, inf,   4 },
-//    /*x8*/   { inf, inf, inf, inf, inf, inf, inf,   0, inf,   3 },
-//    /*x9*/   { inf, inf, inf, inf, inf, inf, inf,   6,   0,  11 },
-//    /*x10*/  { inf, inf, inf, inf, inf, inf, inf, inf, inf,   0 }
+//    {   0,   3,   4,   2, inf, inf, inf, inf, inf, inf },
+//    { inf,   0, inf, inf, inf,   3, inf, inf, inf, inf },
+//    { inf, inf,   0, inf, inf,   6, inf, inf, inf, inf },
+//    { inf, inf, inf,   0,   5,   2, inf, inf, inf, inf },
+//    { inf, inf, inf, inf,   0, inf,   6, inf,  12, inf },
+//    { inf, inf, inf, inf,   1,   0,  12,   7, inf, inf },
+//    { inf, inf, inf, inf, inf, inf,   0, inf, inf,   4 },
+//    { inf, inf, inf, inf, inf, inf, inf,   0, inf,   3 },
+//    { inf, inf, inf, inf, inf, inf, inf,   6,   0,  11 },
+//    { inf, inf, inf, inf, inf, inf, inf, inf, inf,   0 }
 //};
 
 int Matrix_Floyd[N][N] =
 {
-    //           1    2    3    4    5    6    7    8    9   10
-    /*x1*/   {    0,   3,   1,   2, inf, inf, inf, inf, inf, inf },
-    /*x2*/   {  inf,   0, inf, inf,   4, inf, inf, inf, inf, inf },
-    /*x3*/   {  inf,   1,   0, inf, inf,   5,  10,  10, inf, inf },
-    /*x4*/   {  inf, inf,   1,   0, inf,   2, inf, inf, inf, inf },
-    /*x5*/   {  inf, inf,   2, inf,   0, inf,   1, inf,   2, inf },
-    /*x6*/   {  inf, inf, inf, inf,   5,   0, inf,   5, inf,   6 },
-    /*x7*/   {  inf, inf, inf, inf, inf, inf,   0,   3, inf, inf },
-    /*x8*/   {  inf, inf, inf, inf, inf, inf, inf,   0, inf,   1 },
-    /*x9*/   {  inf, inf, inf, inf, inf, inf,   1, inf,   0, inf },
-    /*x10*/  {  inf, inf, inf, inf, inf, inf, inf, inf, inf,   0 }
+    {    0,   3,   1,   2, inf, inf, inf, inf, inf, inf },
+    {  inf,   0, inf, inf,   4, inf, inf, inf, inf, inf },
+    {  inf,   1,   0, inf, inf,   5,  10,  10, inf, inf },
+    {  inf, inf,   1,   0, inf,   2, inf, inf, inf, inf },
+    {  inf, inf,   2, inf,   0, inf,   1, inf,   2, inf },
+    {  inf, inf, inf, inf,   5,   0, inf,   5, inf,   6 },
+    {  inf, inf, inf, inf, inf, inf,   0,   3, inf, inf },
+    {  inf, inf, inf, inf, inf, inf, inf,   0, inf,   1 },
+    {  inf, inf, inf, inf, inf, inf,   1, inf,   0, inf },
+    {  inf, inf, inf, inf, inf, inf, inf, inf, inf,   0 }
 };
 
 int Matrix_Crusc[N][N]
 {
-    //           1    2    3    4    5    6    7    8    9   10
-    /*x1*/   {    0,   3,   1,   2, inf, inf, inf, inf, inf, inf },
-    /*x2*/   {    3,   0,   1, inf,   4, inf, inf, inf, inf, inf },
-    /*x3*/   {    1,   1,   0,   1,   2,   5,  10,  10, inf, inf },
-    /*x4*/   {    2, inf,   1,   0, inf,   2, inf, inf, inf, inf },
-    /*x5*/   {  inf,   4,   2, inf,   0,   5,   1, inf,   2, inf },
-    /*x6*/   {  inf, inf,   5,   2,   5,   0, inf,   5, inf,   6 },
-    /*x7*/   {  inf, inf,  10, inf,   1, inf,   0,   3,   1, inf },
-    /*x8*/   {  inf, inf,  10, inf, inf,   5,   3,   0, inf,   1 },
-    /*x9*/   {  inf, inf, inf, inf,   2, inf,   1, inf,   0, inf },
-    /*x10*/  {  inf, inf, inf, inf, inf,   6, inf,   1, inf,   0 }
+    {    0,   3,   1,   2, inf, inf, inf, inf, inf, inf },
+    {    3,   0,   1, inf,   4, inf, inf, inf, inf, inf },
+    {    1,   1,   0,   1,   2,   5,  10,  10, inf, inf },
+    {    2, inf,   1,   0, inf,   2, inf, inf, inf, inf },
+    {  inf,   4,   2, inf,   0,   5,   1, inf,   2, inf },
+    {  inf, inf,   5,   2,   5,   0, inf,   5, inf,   6 },
+    {  inf, inf,  10, inf,   1, inf,   0,   3,   1, inf },
+    {  inf, inf,  10, inf, inf,   5,   3,   0, inf,   1 },
+    {  inf, inf, inf, inf,   2, inf,   1, inf,   0, inf },
+    {  inf, inf, inf, inf, inf,   6, inf,   1, inf,   0 }
 };
 
 //int Matrix_Smegh[N][N] =
 //{
-//    //           1    2    3    4    5    6    7    8    9   10
-//    /*x1*/   {    0, inf,   2, inf, inf, inf, inf, inf, inf, inf },
-//    /*x2*/   {    4,   0, inf, inf, 5,   inf, inf, inf, inf, inf },
-//    /*x3*/   {  inf,   1,   0, inf, inf, inf, inf, inf, inf, inf },
-//    /*x4*/   {  inf, inf,   3,   0, inf, inf, inf, inf, inf, inf },
-//    /*x5*/   {  inf, inf, inf, inf,   0,   5, inf,   6, inf, inf },
-//    /*x6*/   {    8, inf, inf, inf, inf,   0,   1, inf, inf, inf },
-//    /*x7*/   {  inf, inf, inf, inf,   7, inf,   0, inf, inf,   3 },
-//    /*x8*/   {  inf, inf, inf,   4, inf, inf, inf,   0,   5, inf },
-//    /*x9*/   {  inf, inf, inf, inf,   2, inf, inf, inf,   0, inf },
-//    /*x10*/  {  inf, inf, inf, inf, inf, inf, inf, inf,   1,   0 }
+//    {    0, inf,   2, inf, inf, inf, inf, inf, inf, inf },
+//    {    4,   0, inf, inf, 5,   inf, inf, inf, inf, inf },
+//    {  inf,   1,   0, inf, inf, inf, inf, inf, inf, inf },
+//    {  inf, inf,   3,   0, inf, inf, inf, inf, inf, inf },
+//    {  inf, inf, inf, inf,   0,   5, inf,   6, inf, inf },
+//    {    8, inf, inf, inf, inf,   0,   1, inf, inf, inf },
+//    {  inf, inf, inf, inf,   7, inf,   0, inf, inf,   3 },
+//    {  inf, inf, inf,   4, inf, inf, inf,   0,   5, inf },
+//    {  inf, inf, inf, inf,   2, inf, inf, inf,   0, inf },
+//    {  inf, inf, inf, inf, inf, inf, inf, inf,   1,   0 }
 //};
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    //system("color F0");
+    int menu; // Выбор действия
 
-    int Menu;
-
-    cout << " Введите число " << endl
-         << " 1 -- Алгоритм Флойда-Уоршелла " << endl
-         << " 2 -- Алгоритм Крускала (Краскала) " << endl;
-    cout << " Этап: "; cin >> Menu;
+    cout << "Enter the number:" << endl
+         << "1 -- Floyd-Warshall algorithm" << endl
+         << "2 -- Kruskal's (Kruskal's) algorithm" << endl;
+    cout << "Stage: "; cin >> menu;
 
     //_____________________________ЭТАП 1__________________________________
-    if (Menu == 1)      // Алгоритм Флойда_Уоршелла
+    if (menu == 1) // Алгоритм Флойда_Уоршелла
     {
         // Инициализация двумерных динамичeских массивов 10х10
         int** Shortest = new int* [N];
@@ -93,7 +86,7 @@ int main()
         {
             for (int v = 0; v < N; v++)
             {
-                Shortest[u][v] = Matrix_Floyd[u][v];         // Копирование с матрицы смежностей
+                Shortest[u][v] = Matrix_Floyd[u][v]; // Копирование с матрицы смежностей
                 if (Matrix_Floyd[u][v] < inf)
                     Pred[u][v] = u;
                 else
@@ -102,27 +95,27 @@ int main()
         }
 
         // Печать массива смежностей
-        cout << "\n\t\tИсходная матрица смежности" << endl;
+        cout << "\n\t\tInitial Adjacency Matrix:" << endl;
         Print_Smegh(Matrix_Floyd);
         BotBorder();
 
-        cout << "\t\t\tБыло:" << endl << endl;
-        Print_Pred(Pred);                                                       // Печать матрицы Pred
-        Print_Help_Matr(Shortest);                                       // Печать матрицы Shortest
+        cout << "\t\t\tBefore:" << endl << endl;
+        Print_Pred(Pred); // Печать матрицы Pred
+        Print_Help_Matr(Shortest); // Печать матрицы Shortest
         BotBorder();
 
-        Floyd_Warshall(&Shortest, &Pred);                         // Алгоритм Флойда-Уоршелла                                                                                        
+        Floyd_Warshall(&Shortest, &Pred); // Алгоритм Флойда-Уоршелла                                                                                        
         BotBorder();
 
-        cout << "\t\t\tСтало:" << endl << endl;                                                             
-        Print_Pred(Pred);                                                       // Печать матрицы Pred      
-        Print_Help_Matr(Shortest);                                       // Печать матрицы Shortest  
+        cout << "\t\t\tAfter:" << endl << endl;                                                             
+        Print_Pred(Pred); // Печать матрицы Pred      
+        Print_Help_Matr(Shortest); // Печать матрицы Shortest  
         BotBorder();
 
-        Way(Pred);                                                              // Функция нахождения пути
+        Way(Pred); // Функция нахождения пути
         BotBorder();
 
-    } // if
+    }
     //_____________________________ЭТАП 2__________________________________
     else // Алгоритм Крускала
     {
@@ -130,7 +123,7 @@ int main()
         int** Ostov = new int* [N];
         for (int i = 0; i < N; i++) Ostov[i] = new int[N]();
 
-        int R[N - 1][3];            // Массив для записи ребер и их веса
+        int R[N - 1][3]; // Массив для записи ребер и их веса
 
         // Заполнение массива
         for (int i = 0; i < N; i++)
@@ -142,23 +135,23 @@ int main()
                     Ostov[i][j] = 0;
                 else
                     Ostov[i][j] = Matrix_Crusc[i][j];
-            } // for j
-        } // for i
+            }
+        }
 
-        cout << "\t\tИсходная матрица графа:" << endl;
+        cout << "\t\tSource graph matrix:" << endl;
         Print_Smegh(Matrix_Crusc);
         BotBorder();
 
-        cout << "\t\tМатрица Ostov до алгоритма:" << endl;
+        cout << "\t\tOstov matrix before algorithm:" << endl;
         Print_Help_Matr(Ostov);
         BotBorder();
 
-        cout << "\n Остовное  дерево  наименьшего  веса  по  Крускалу";
+        cout << "\nLeast Kruskal weight spanning tree:";
         Crusc(Matrix_Crusc, &Ostov, R);
         BotBorder();
 
-        cout << "\n  Матрица  смежности  графа  с остовным  деревом : " << endl;
+        cout << "\nAdjacency matrix of graph with spanning tree:" << endl;
         Print_Help_Matr(Ostov);
         BotBorder();
     }
-} // main()
+}

@@ -10,7 +10,6 @@ using namespace std;
 void Print_Pred(int **Array)
 {
     cout << "\t\t\tPred" << endl;
-    setlocale(LC_ALL, "C"); //ОТКЛЮЧЕНИЕ РУССКОГО ЯЗЫКА
     Shapka();
     Numberacya();
     for (int u = 0; u < N; u++)
@@ -26,13 +25,11 @@ void Print_Pred(int **Array)
         }
     }
     Niz();
-    setlocale(LC_ALL, "Rus");
     cout << endl;
 }
 
 void Print_Smegh(int Matrix[N][N])
 {
-    setlocale(LC_ALL, "C"); //ОТКЛЮЧЕНИЕ РУССКОГО ЯЗЫКА
     Shapka();
     Numberacya();
     for (int u = 0; u < N; u++)
@@ -48,12 +45,11 @@ void Print_Smegh(int Matrix[N][N])
         }
     }
     Niz();
-    setlocale(LC_ALL, "Rus");
     cout << endl;
 }
 void Print_Help_Matr(int** Matrix)
 {
-   // cout << "\t\t\tShortest" << endl;
+    cout << "\t\t\tShortest" << endl;
     Shapka();
     Numberacya();
     for (int u = 0; u < N; u++)
@@ -89,10 +85,10 @@ void Print_Help_Matr(int** Matrix)
 void Way(int** Pred) // Метод вывода пути
 {
     int k, m;                                                                        
-    cout << " Введите откуда: ";   cin >> k;                                         
-    cout << " Введите куда  : ";   cin >> m;                                         
+    cout << "Enter from where: ";   cin >> k;                                         
+    cout << "Enter where: ";   cin >> m;                                         
                                                                                      
-    cout << " Из " << k << " в " << m << ":" << endl;                                
+    cout << "From " << k << " in " << m << ":" << endl;                                
     int Temp = m - 1;                                                                
     if (Pred[k - 1][Temp] > 0)                                                       
     {                                                                                
@@ -103,14 +99,11 @@ void Way(int** Pred) // Метод вывода пути
             Temp = Pred[k - 1][Temp];                                                
         }                                                                            
     }                                                                                
-    else cout << " Ошибка: Пути из " << k << " в " << m << " нет";                   
+    else cout << "Error: Paths from " << k << " in " << m << " not";                   
     cout << endl;                                                                    
 }
 int  mini(int value1, int value2) {
     return ((value1 < value2) ? value1 : value2);
-}
-void DeleteMas(int* Array) {
-    delete[] Array;
 }
 void BotBorder() {
     cout << "________________________________________________________" << endl;
@@ -127,7 +120,7 @@ void Shapka() {
 void Numberacya() {
     cout << setfill(' ');
     cout << char(179) << setw(4) << " ";    // "│  "
-    for (int i = 1; i <= 10; i++)
+    for (int i = 1; i <= N; i++)
         cout << char(179) << setw(4) << i;  // "│ 1"
     cout << char(179);                      // "│"
 
@@ -211,7 +204,7 @@ void Crusc(int A[][N], int ***B, int  R[][3]) // Алгоритм Крускал
         } // for j
     } // for i
 
-    cout << "\n Ребра  исходного  графа : \n";  // Вывод ребер
+    cout << "\nEdges of the original graph:\n";  // Вывод ребер
     cout << En << endl;
     for (int i = 0; i < En; i++)
     {
@@ -242,7 +235,7 @@ void Crusc(int A[][N], int ***B, int  R[][3]) // Алгоритм Крускал
 
         //печать
         cout << "\t\t\tCn: " << Cn << endl
-            << " \t\t Добавил " << Edge[xmin].out + 1 << " –– "
+            << " \t\tAdded " << Edge[xmin].out + 1 << " –– "
             << Edge[xmin].in + 1 << " = " << Edge[xmin].weight << endl;
         Print_Help_Matr((*B));
 
@@ -265,5 +258,5 @@ void Crusc(int A[][N], int ***B, int  R[][3]) // Алгоритм Крускал
                 Sum += R[k - 1][2];            } // if
         } // for j
     } // for i
-    cout << " Суммарный вес: " << Sum << endl;
+    cout << "Total weight: " << Sum << endl;
 } // Crusc()
