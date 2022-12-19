@@ -7,23 +7,18 @@ const int N = 10;
 
 using namespace std;
 
-// Процедуры печати
-void Print_Matr(int** Matrix);
-void Static_Print_Matr(int Matrix[][N]);
-// Вспомогательные методы
-void Way(int** Pred);
-int  mini(int value1, int value2);
-void BotBorder();
+// РњРµС‚РѕРґС‹ РїРµС‡Р°С‚Рё
+void printMatrixStatic(int matrix[][N]); // РџРµС‡Р°С‚СЊ СЃС‚Р°С‚РёС‡РµСЃРєРѕР№ РјР°С‚СЂРёС†С‹
+void printMatrix(int** matrix); // РџРµС‡Р°С‚СЊ РґРёРЅР°РјРёС‡РµСЃРєРѕР№ РјР°С‚СЂРёС†С‹
 
-// Методы для построения таблиц
-void Shapka();
-void Numberacya();
-void Mid();
-void Niz();
+// РњРµС‚РѕРґС‹ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ С‚Р°Р±Р»РёС†
+void tableHeader(); // Р—Р°РіРѕР»РѕРІРѕРє С‚Р°Р±Р»РёС†С‹
+void tableValues(); // Р—РЅР°С‡РµРЅРёСЏ С‚Р°Р±Р»РёС†С‹
+void tableCenter(); // Р¦РµРЅС‚СЂ С‚Р°Р±Р»РёС†С‹
+void tableBottom(); // РќРёР· С‚Р°Р±Р»РёС†С‹
 
-// Методы алгоритмов
-void Floyd_Warshall(int*** Shotest); // Алгоритм Флойда-Уоршелла
-void Crusc(int A[][N], int*** B, int  R[][3]); // Алгоритм Крускала
-
+// РњРµС‚РѕРґС‹ Р°Р»РіРѕСЂРёС‚РјРѕРІ
+void floydWarshall(int*** shotest); // РђР»РіРѕСЂРёС‚Рј Р¤Р»РѕР№РґР°-РЈРѕСЂС€РµР»Р»Р°
+void kruskal(int A[][N], int*** B, int  R[][3]); // РђР»РіРѕСЂРёС‚Рј РљСЂР°СЃРєР°Р»Р°
 
 #endif
